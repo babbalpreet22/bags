@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="354dp"
+        android:layout_height="363dp"
         app:srcCompat="@drawable/bgs" />
 
     <Space
@@ -36,17 +36,13 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="16dp" />
+        android:layout_height="13dp" />
 
     <EditText
         android:id="@+id/product_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Product Price" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
 
     <Button
