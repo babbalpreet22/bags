@@ -15,6 +15,7 @@ public class signin extends AppCompatActivity implements View.OnClickListener {
     EditText email;
     EditText password;
     Button signIn;
+    Button retrieve;
     Context context = signin.this;
 
     @Override
@@ -26,8 +27,10 @@ public class signin extends AppCompatActivity implements View.OnClickListener {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         signIn = findViewById(R.id.signIn);
+        retrieve=findViewById(R.id.retrieve);
 
         signIn.setOnClickListener(this);
+        retrieve.setOnClickListener(this);
     }
 
     @Override
@@ -40,7 +43,17 @@ public class signin extends AppCompatActivity implements View.OnClickListener {
                 context.startActivity(intent);
                 break;
 
+            case R.id.retrieve:
+                sendData();
+                intent = new Intent(context, retrieve.class);
+                context.startActivity(intent);
+                break;
+
+
 
         }
+    }
+
+    private void sendData() {
     }
 }
