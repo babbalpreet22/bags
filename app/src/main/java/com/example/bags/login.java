@@ -1,5 +1,6 @@
 package com.example.bags;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -10,39 +11,41 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-public class signup extends AppCompatActivity implements View.OnClickListener {
+public class login extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView image_signup;
-    EditText name;
-    EditText email;
+    ImageView image;
+    EditText username;
     EditText password;
-    Button signUp;
-    Context context = signup.this;
+    Button log_in;
+    Context login =login.this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_login);
 
-        image_signup = findViewById(R.id.image_signup);
-        name = findViewById(R.id.name);
-        email = findViewById(R.id.email);
+        image = findViewById(R.id.image);
         password = findViewById(R.id.password);
-        signUp = findViewById(R.id.signUp);
+        username = findViewById(R.id.username);
+        log_in = findViewById(R.id.log_in);
 
-        signUp.setOnClickListener(this);
+        log_in.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
         Intent intent;
+
         switch (v.getId()) {
-            case R.id.signUp:
-                intent = new Intent(context, signin.class);
-                context.startActivity(intent);
+            case R.id.log_in:
+                intent = new Intent(login, product_details.class);
+                login.startActivity(intent);
+
                 break;
 
 
         }
     }
 }
+

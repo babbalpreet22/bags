@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signin"
+    tools:context=".login"
     android:orientation="vertical">
 
 
@@ -15,31 +15,24 @@
         app:srcCompat="@drawable/shopping" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Your Email"
+        android:hint="Username"
         android:layout_gravity="center"/>
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Your Password "
+        android:hint="Password"
         android:layout_gravity="center"/>
 
     <Button
-        android:id="@+id/signIn"
+        android:id="@+id/log_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SignIn"
+        android:text="Login"
         android:layout_gravity="center"/>
-
-    <Button
-        android:id="@+id/retrieve"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Retrieve" />
 
 </LinearLayout>
