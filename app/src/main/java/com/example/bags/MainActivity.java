@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()) {
             case R.id.sign_in:
+                Intent intent1 = new Intent(context, login.class);
+                context.startActivity(intent1);
+
 
             case R.id.register_now:
                 createUser();
