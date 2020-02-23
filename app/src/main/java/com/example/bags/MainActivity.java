@@ -1,8 +1,5 @@
 package com.example.bags;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -46,14 +54,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.sign_in:
 
             case R.id.register_now:
-                intent = new Intent(context, login.class);
-                context.startActivity(intent);
-
+                createUser();
                 break;
 
 
         }
     }
+
+    private void createUser() {
+        String str= email.getText().toString();
+        String str2= password.getText().toString();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.createUserWithEmailAndPassword(str,str2).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                Toast.makeText(MainActivity.this,"Success",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, login.class);
+                context.startActivity(intent);
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(MainActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                e.printStackTrace();
+
+            }
+        });
+    }
+
+
 }
+
 
 

@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/shop"
         android:layout_width="match_parent"
-        android:layout_height="439dp"
+        android:layout_height="321dp"
         app:srcCompat="@drawable/welcome" />
 
     <EditText

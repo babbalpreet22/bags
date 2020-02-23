@@ -11,10 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+
 public class login extends AppCompatActivity implements View.OnClickListener {
 
     ImageView image;
-    EditText username;
+    EditText email;
     EditText password;
     Button log_in;
     Context login =login.this;
@@ -26,7 +32,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
         image = findViewById(R.id.image);
         password = findViewById(R.id.password);
-        username = findViewById(R.id.username);
+        email = findViewById(R.id.email);
         log_in = findViewById(R.id.log_in);
 
         log_in.setOnClickListener(this);
@@ -35,11 +41,12 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Intent intent;
+
 
         switch (v.getId()) {
             case R.id.log_in:
-                intent = new Intent(login, product_details.class);
+                loginUser();
+                Intent intent = new Intent(login, product_details.class);
                 login.startActivity(intent);
 
                 break;
@@ -47,5 +54,28 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
         }
     }
+
+    private void loginUser() {
+        String emailstr= email.getText().toString();
+        String passwordstr= password.getText().toString();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.signInWithEmailAndPassword(emailstr,passwordstr).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+            @Override
+            public void onSuccess(AuthResult authResult) {
+                Intent intent = new Intent(login.this,product_details.class);
+                login.this.startActivity(intent);
+            }
+
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+    }
+
+
 }
+
+
 
