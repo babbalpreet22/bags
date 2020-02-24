@@ -10,9 +10,16 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="363dp"
+        android:layout_width="426dp"
+        android:layout_height="322dp"
         app:srcCompat="@drawable/bgs" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="82dp"
+        android:text="Handbag-Price: $70,  Clutch-Price: $50, CrossBody-Price: $90, Hobo-Price: 40, Messenger-Price: 60, Bachpack-Price: 120"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
 
     <EditText
         android:id="@+id/product_name"

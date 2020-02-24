@@ -46,7 +46,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.log_in:
                 loginUser();
-                Intent intent = new Intent(login.this,products_main.class);
+                Intent intent = new Intent(login.this,choose.class);
                 login.this.startActivity(intent);
                 break;
 
@@ -61,7 +61,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         mAuth.signInWithEmailAndPassword(emailstr,passwordstr).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
-                Intent intent = new Intent(login.this,products_main.class);
+                Intent intent = new Intent(login.this,choose.class);
                 login.this.startActivity(intent);
             }
 

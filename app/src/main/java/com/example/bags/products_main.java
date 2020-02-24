@@ -15,6 +15,7 @@ public class products_main extends AppCompatActivity {
 
    /// Integer[] imgid={R.drawable.bgs, R.drawable.shopping, R.drawable.shoppingbags};
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
